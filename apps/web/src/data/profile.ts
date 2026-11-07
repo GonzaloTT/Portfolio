@@ -15,6 +15,14 @@ export const profile = {
   id: 'gonzalo-portfolio',
 }
 
+const whatsAppNumber = '+52 442 233 7055'
+const whatsAppMessage = 'Hi Gonzalo! I found your portfolio and would like to connect with you about a project or professional opportunity.'
+
+export const whatsApp = {
+  number: whatsAppNumber,
+  url: `https://wa.me/${whatsAppNumber.replace(/\D/g, '')}?text=${encodeURIComponent(whatsAppMessage)}`,
+}
+
 export const navigation = [
   { label: 'Home', to: '/#home' },
   { label: 'About', to: '/#about' },

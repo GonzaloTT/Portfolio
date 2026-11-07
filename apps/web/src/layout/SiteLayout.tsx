@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router'
+import { WhatsAppLink } from '../components/WhatsAppLink'
 import { navigation, profile } from '../data/profile'
 
 function RoutePosition() {
@@ -41,6 +42,7 @@ export function SiteLayout() {
         </nav>
         <div className="header-actions">
           <span className="availability"><span />Open to Work</span>
+          <WhatsAppLink className="icon-button header-whatsapp" />
           <NavLink to="/connect" className="button primary header-connect">Connect with Me</NavLink>
           <button className="icon-button menu-toggle" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
         </div>
@@ -63,6 +65,7 @@ export function SiteLayout() {
         <small>© {new Date().getFullYear()} {profile.name}</small>
       </div>
     </footer>
+    <WhatsAppLink className="icon-button floating-whatsapp" />
   </>
 }
 

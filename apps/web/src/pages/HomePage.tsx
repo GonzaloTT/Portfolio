@@ -4,6 +4,7 @@ import { EducationCards } from '../components/EducationCards'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
 import { SectionHeading } from '../components/SectionHeading'
 import { ProjectsCarousel } from '../components/ProjectsCarousel'
+import { WhatsAppLink } from '../components/WhatsAppLink'
 import { profile } from '../data/profile'
 import { skillGroups } from '../data/skills'
 import '../styles/home.css'
@@ -64,6 +65,7 @@ export function HomePage() {
           <a className="button secondary" href={profile.cvUrl} download="Gonzalo_Magana_Segovia_CV.pdf"><Download size={17} aria-hidden="true" />Download CV</a>
         </div>
         <div className="contact-links">
+          <WhatsAppLink className="contact-whatsapp" showNumber />
           <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer"><GitFork size={16} aria-hidden="true" />GitHub / GonzaloTT <ArrowUpRight size={14} aria-hidden="true" /></a>
           <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer"><Link2 size={16} aria-hidden="true" />LinkedIn <ArrowUpRight size={14} aria-hidden="true" /></a>
         </div>
