@@ -1,0 +1,50 @@
+.experience-page { padding-bottom: 70px; }
+.experience-intro { padding-top: 48px; padding-bottom: 44px; }
+.experience-intro h1 { font-size: clamp(2.2rem, 4.5vw, 4rem); }
+.experience-intro > p { margin-top: 20px; }
+.role-panel { padding: 38px; }
+.role-heading { display: flex; align-items: center; gap: 20px; }
+.role-heading h2 { font-size: 1.75rem; }
+.role-heading p { color: var(--accent); margin-top: 8px; }
+.role-summary { margin-top: 32px; background: #101612; border-radius: 8px; padding: 20px; font-size: .9rem; }
+.experience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+.experience-area { background: #1e2720; padding: 22px; border: 1px solid #29362b; border-radius: 12px; display: flex; flex-direction: column; align-items: flex-start; }
+.area-top { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 20px; }
+.area-top > span { color: var(--muted); font-size: .65rem; }
+.experience-area h3 { font-size: 1.25rem; }
+.experience-area p { margin-top: 12px; font-size: .83rem; }
+.experience-area > .eyebrow { margin-top: auto; padding-top: 24px; margin-bottom: 0; color: var(--accent); font-size: .57rem; }
+.role-technologies { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.role-technologies > .mono { color: var(--muted); font-size: .63rem; }
+.experience-page .education-cards { grid-template-columns: 1fr 1fr; }
+.experience-page .education-card { min-height: 170px; padding: 30px; }
+.experience-page .education-card h3 { font-size: 1.4rem; max-width: 400px; }
+.experience-page .education-card p { font-size: .92rem; color: var(--accent); }
+.experience-cta { padding: 36px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.experience-cta h2 { font-size: 1.6rem; }
+.experience-cta p { font-size: .85rem; margin-top: 12px; }
+.experience-cta .button-row { flex-shrink: 0; }
+@media (max-width: 900px) {
+  .experience-grid { grid-template-columns: 1fr; }
+  .experience-area > .eyebrow { padding-top: 18px; }
+  .experience-cta { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .experience-intro { padding-top: 28px; }
+  .experience-intro > p { font-size: .9rem; }
+  .role-panel { padding: 22px; }
+  .role-heading { align-items: flex-start; gap: 12px; }
+  .role-heading > svg { width: 42px; height: 42px; }
+  .role-heading h2 { font-size: 1.35rem; }
+  .role-heading p { font-size: .82rem; }
+  .role-summary { font-size: .84rem; padding: 16px; margin-top: 22px; }
+  .experience-area { padding: 20px; }
+  .experience-page .education-cards { grid-template-columns: 1fr; }
+  .experience-page .education-card { padding: 24px; }
+  .experience-page .education-card h3 { font-size: 1.15rem; }
+  .experience-page .education-card p { font-size: .82rem; }
+  .experience-cta { padding: 26px; }
+  .experience-cta h2 { font-size: 1.4rem; }
+  .experience-cta .button-row { width: 100%; flex-direction: column; }
+}
+
