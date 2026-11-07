@@ -27,7 +27,7 @@ export function SiteLayout() {
   const location = useLocation()
   return <>
     <RoutePosition />
-    <a className="skip-link" href="#main-content">Skip to content</a>
+    <Link className="skip-link" to={{ pathname: location.pathname, search: location.search, hash: '#main-content' }}>Skip to content</Link>
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/#home" className="brand" onClick={() => setMenuOpen(false)} aria-label="Gonzalo Magaña — Home">

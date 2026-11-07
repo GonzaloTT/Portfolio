@@ -19,7 +19,19 @@ npm run lint -w apps/web
 npm run preview -w apps/web
 ```
 
-The production output is `apps/web/dist`. Configure a static host to serve `index.html` for application routes, including direct visits to `/experience` and `/connect`.
+The production build command is `npm run build`; output is `apps/web/dist` with the `/Portfolio/` asset base. Local development stays at `http://localhost:5173/`. Hash routing works on static hosting without rewrite rules.
+
+## GitHub Pages deployment
+
+Expected public URL: https://GonzaloTT.github.io/Portfolio/
+
+Routes are `/Portfolio/`, `/Portfolio/#/experience`, and `/Portfolio/#/connect`. Home section links use router-managed anchors such as `/Portfolio/#/#about`, including navigation from other pages.
+
+`.github/workflows/deploy.yml` installs locked dependencies with `npm ci` on Node.js 24, checks types, builds through the root workspace command, and deploys `apps/web/dist` using official GitHub Pages actions. Pushes to `main` deploy automatically; manual runs are also available from Actions (select `main`). Deployments are serialized and use the standard `GITHUB_TOKEN`; build output and credentials are never committed.
+
+Repository Settings → Pages → Build and deployment → Source must be **GitHub Actions**. Check the workflow and `github-pages` environment for deployment status before treating the expected URL as published.
+
+Develop on feature branches, validate, and merge normally into production branch `main`. Preserve `feat/portfolio-frontend` and `chore/project-setup` and their existing history; no `gh-pages` branch is used.
 
 ## Implemented
 
@@ -31,7 +43,7 @@ The production output is `apps/web/dist`. Configure a static host to serve `inde
 
 ## Update public content
 
-- `apps/web/src/data/profile.ts`: Display name, title, profile identifier, confirmed GitHub, portrait settings, and nullable email / LinkedIn / CV URLs. The identifier is a local display setting, not a registered network identity. The copied profile link uses the current site's origin.
+- `apps/web/src/data/profile.ts`: Display name, title, profile identifier, confirmed GitHub, portrait settings, and nullable email / LinkedIn / CV URLs. The identifier is a local display setting, not a registered network identity. The copied profile link includes the current site's origin, deployment base, and hash route.
 - `apps/web/src/data/projects.ts`: Typed project descriptions, technology badges, reserved preview paths, availability flags, and optional confirmed repository / deployment URLs.
 - `apps/web/src/data/experience.ts` and `skills.ts`: Concise experience and skill content.
 - `apps/web/src/styles/`: Shared design tokens and responsive page styles.
