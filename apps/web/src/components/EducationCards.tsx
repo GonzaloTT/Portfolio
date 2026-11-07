@@ -4,7 +4,7 @@ export function EducationCards() {
   return <div className="education-cards">
     <article className="panel education-card">
       <GraduationCap className="tile-icon" size={38} aria-hidden="true" />
-      <span className="eyebrow">University education</span>
+      <span className="eyebrow">Degree in progress</span>
       <h3>Universidad Mondragón México</h3>
       <p>Software Engineering and Embedded Systems</p>
     </article>
@@ -12,7 +12,7 @@ export function EducationCards() {
       <Code2 className="tile-icon accent" size={38} aria-hidden="true" />
       <span className="eyebrow">Specialized training</span>
       <h3>TripleTen</h3>
-      <p>Full Stack Development <span aria-hidden="true">·</span> UX/UI Design</p>
+      <p>Full Stack Web Development Bootcamp<br />UX/UI Design Bootcamp</p>
     </article>
   </div>
 }

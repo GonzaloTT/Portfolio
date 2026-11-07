@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Database, Download, GitFork, Link2, Mail, Monitor, PenTool, Smartphone } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Database, Download, GitFork, Link2, Mail, Monitor, PenTool, ShieldCheck, Smartphone, Wrench } from 'lucide-react'
 import { Link } from 'react-router'
 import { EducationCards } from '../components/EducationCards'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
@@ -8,7 +8,7 @@ import { profile } from '../data/profile'
 import { skillGroups } from '../data/skills'
 import '../styles/home.css'
 
-const skillIcons = { frontend: Monitor, backend: Database, mobile: Smartphone, design: PenTool }
+const skillIcons = { frontend: Monitor, backend: Database, mobile: Smartphone, tools: Wrench, design: PenTool, systems: ShieldCheck }
 
 export function HomePage() {
   return <div className="container">
@@ -17,8 +17,8 @@ export function HomePage() {
         <span className="availability"><span />OPEN TO WORK</span>
         <h1>{profile.name}</h1>
         <h2>{profile.title}</h2>
-        <p className="hero-intro">Building thoughtful digital experiences through design and software engineering.</p>
-        <p>Bringing software development and user-centered design together to build clear, practical digital solutions.</p>
+        <p className="hero-secondary-title">{profile.secondaryTitle}</p>
+        <p className="hero-intro">I develop web and mobile applications, combining software engineering, modern technologies, and user-centered design to build functional and scalable digital solutions.</p>
         <div className="button-row">
           <Link className="button primary" to="/#projects">View Projects <ArrowRight size={17} /></Link>
           <Link className="button secondary" to="/#contact"><Mail size={17} />Contact Me</Link>
@@ -32,8 +32,7 @@ export function HomePage() {
       <div className="about-grid">
         <article className="panel biography">
           <span className="eyebrow">Background & focus</span>
-          <p>My background brings together Software Engineering and Embedded Systems at Universidad Mondragón México, Full Stack Development, and UX/UI Design training at TripleTen.</p>
-          <p>I approach software with both the system and the person in mind: practical architecture, clear interfaces, and thoughtful user experiences.</p>
+          <p>I’m interested in software engineering across the stack, from frontend interfaces and backend services to mobile apps. I also explore UX/UI design and embedded systems, with an interest in how software connects people and devices.</p>
           <div className="tags"><span>Software engineering</span><span>User-centered design</span><span>Business workflows</span></div>
         </article>
         <EducationCards />
@@ -46,7 +45,7 @@ export function HomePage() {
     </section>
 
     <section id="skills" tabIndex={-1} className="section">
-      <SectionHeading label="03 / Competencies" title="Tech Stack" description="Development, design, and the tools that bring them together." />
+      <SectionHeading label="03 / Competencies" title="Tech Stack" />
       <div className="skills-grid">
         {skillGroups.map(group => {
           const Icon = skillIcons[group.icon]

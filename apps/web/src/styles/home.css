@@ -2,7 +2,7 @@
 .hero h1 { margin-top: 28px; }
 .hero h2 { color: var(--green); font-size: 1.25rem; letter-spacing: -.02em; margin-top: 14px; line-height: 1.4; }
 .hero-intro { margin-top: 25px; font-size: 1.05rem; color: #d0d8ce; }
-.hero-copy > p + p { margin-top: 12px; font-size: .88rem; max-width: 510px; }
+.hero-secondary-title { margin-top: 6px; font-size: .95rem; }
 .hero .button-row { margin-top: 30px; }
 .image-placeholder { position: relative; display: grid; place-items: center; overflow: hidden; background: #0b100d; border: 1px solid #202b23; border-radius: 12px; }
 .image-placeholder.portrait { aspect-ratio: 4 / 5; background: linear-gradient(145deg, #1b241d, #101612 65%); }
@@ -32,9 +32,10 @@
 .education-card .tile-icon { position: absolute; top: 24px; right: 22px; }
 .tags { display: flex; flex-wrap: wrap; gap: 7px; }
 .tags span { background: #202922; border: 1px solid #29362c; padding: 4px 8px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; color: #c0cbc1; font-size: .62rem; line-height: 1.5; }
-.skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.skill-card { padding: 24px 20px; }
-.skill-card h3 { font-size: 1.05rem; margin: 18px 0; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.skill-card { padding: 20px; }
+.skill-card .tags span { padding: 3px 7px; }
+.skill-card h3 { font-size: 1.05rem; margin: 12px 0; }
 .contact-section { padding-bottom: 100px; }
 .contact-panel { padding: 60px; background: radial-gradient(ellipse at 100% 0, #25301a66, transparent 60%), #141a16; }
 .contact-panel h2 { max-width: 740px; }
@@ -46,7 +47,7 @@
 @media (max-width: 900px) {
   .hero { gap: 32px; min-height: 580px; }
   .hero h1 { font-size: 2.8rem; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-grid { grid-template-columns: 1fr; }
   .education-cards { grid-template-columns: repeat(2, 1fr); }
   .contact-panel { padding: 36px; }
@@ -56,7 +57,7 @@
   .hero h1 { font-size: 2.35rem; margin-top: 22px; }
   .hero h2 { font-size: 1.05rem; color: var(--accent); }
   .hero-intro { font-size: .92rem; margin-top: 18px; }
-  .hero-copy > p + p { font-size: .85rem; }
+  .hero-secondary-title { font-size: .85rem; }
   .hero .button-row { display: grid; grid-template-columns: 1fr 1fr; }
   .image-placeholder.portrait { aspect-ratio: 4 / 3; }
   .placeholder-center { padding: 36px 20px; }

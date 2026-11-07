@@ -32,7 +32,7 @@ export function SiteLayout() {
       <div className="container header-inner">
         <Link to="/#home" className="brand" onClick={() => setMenuOpen(false)} aria-label="Gonzalo Magaña — Home">
           <span className="brand-monogram mono">GM</span>
-          <span><strong>Gonzalo Magaña</strong><small>FULL STACK & UX/UI</small></span>
+          <span><strong>Gonzalo Magaña</strong><small>{profile.headerSubtitle}</small></span>
         </Link>
         <nav aria-label="Main navigation" className="desktop-nav">
           {navigation.map(({ label, to }) => <Link key={to} to={to} aria-current={location.pathname + location.hash === to ? 'location' : undefined}>{label}</Link>)}

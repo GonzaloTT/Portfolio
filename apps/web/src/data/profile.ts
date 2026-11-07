@@ -2,6 +2,8 @@
 export const profile = {
   name: 'Gonzalo Magaña Segovia',
   title: 'Full Stack Developer & UX/UI Designer',
+  secondaryTitle: 'Software Engineering & Embedded Systems Engineer',
+  headerSubtitle: 'SOFTWARE ENGINEER · FULL STACK',
   githubUrl: 'https://github.com/GonzaloTT',
   email: null as string | null,
   linkedinUrl: null as string | null,
