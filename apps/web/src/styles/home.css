@@ -41,8 +41,9 @@
 .contact-panel h2 { max-width: 740px; }
 .contact-panel > p { margin-top: 15px; }
 .contact-actions { margin-top: 28px; }
+.contact-actions a[href^="mailto:"] { overflow-wrap: anywhere; }
 .contact-links { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 24px; font-size: .75rem; color: var(--muted); }
-.contact-links a, .contact-links > span { display: inline-flex; align-items: center; gap: 8px; }
+.contact-links a { display: inline-flex; align-items: center; gap: 8px; }
 .contact-links a:hover { color: var(--green); }
 @media (max-width: 900px) {
   .home-page > .section { padding-block: 36px; }

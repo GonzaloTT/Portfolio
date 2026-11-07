@@ -60,12 +60,12 @@ export function HomePage() {
         <h2>Let's Build Something Together</h2>
         <p>Have a project, an opportunity, or an idea? Let's connect.</p>
         <div className="button-row contact-actions">
-          {profile.email ? <a className="button primary" href={`mailto:${profile.email}`}><Mail size={17} />Send Email</a> : <button className="button primary" disabled><Mail size={17} />Email — coming soon</button>}
+          <a className="button primary" href={`mailto:${profile.email}`}><Mail size={17} aria-hidden="true" /><span>{profile.email}</span></a>
           {profile.cvUrl ? <a className="button secondary" href={profile.cvUrl} download><Download size={17} />Download CV</a> : <button className="button secondary" disabled><Download size={17} />CV — coming soon</button>}
         </div>
         <div className="contact-links">
-          <a href={profile.githubUrl} target="_blank" rel="noreferrer"><GitFork size={16} />GitHub / GonzaloTT <ArrowUpRight size={14} /></a>
-          {profile.linkedinUrl ? <a href={profile.linkedinUrl} target="_blank" rel="noreferrer"><Link2 size={16} />LinkedIn <ArrowUpRight size={14} /></a> : <span><Link2 size={16} />LinkedIn — URL pending</span>}
+          <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer"><GitFork size={16} aria-hidden="true" />GitHub / GonzaloTT <ArrowUpRight size={14} aria-hidden="true" /></a>
+          <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer"><Link2 size={16} aria-hidden="true" />LinkedIn <ArrowUpRight size={14} aria-hidden="true" /></a>
         </div>
       </div>
     </section>

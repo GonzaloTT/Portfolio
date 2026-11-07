@@ -10,7 +10,7 @@ export function ConnectPage() {
   const { copy, message, busy } = useClipboard()
   const [otherId, setOtherId] = useState('')
   const [connectionMessage, setConnectionMessage] = useState('')
-  const profileLink = new URL(`${import.meta.env.BASE_URL}#/connect`, window.location.origin).href
+  const profileLink = new URL('#/connect', profile.portfolioUrl).href
 
   function handleConnect(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

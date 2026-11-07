@@ -53,7 +53,13 @@ export function SiteLayout() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div><strong>{profile.name}</strong><p>{profile.title}</p></div>
-        <nav aria-label="Footer navigation"><a href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a><Link to="/#contact">Contact</Link><Link to="/connect">Connect</Link></nav>
+        <nav aria-label="Footer navigation">
+          <a href={`mailto:${profile.email}`}>Email</a>
+          <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight size={13} aria-hidden="true" /></a>
+          <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} aria-hidden="true" /></a>
+          <Link to="/#contact">Contact</Link>
+          <Link to="/connect">Connect</Link>
+        </nav>
         <small>© {new Date().getFullYear()} {profile.name}</small>
       </div>
     </footer>

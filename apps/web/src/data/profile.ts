@@ -1,12 +1,13 @@
-// Public presentation settings only. Add contact URLs after they are confirmed.
+// Public presentation settings only.
 export const profile = {
   name: 'Gonzalo Magaña Segovia',
   title: 'Full Stack Developer & UX/UI Designer',
   secondaryTitle: 'Software Engineering & Embedded Systems Engineer',
   headerSubtitle: 'SOFTWARE ENGINEER · FULL STACK',
   githubUrl: 'https://github.com/GonzaloTT',
-  email: null as string | null,
-  linkedinUrl: null as string | null,
+  email: 'gonzalo.magana.1808@gmail.com',
+  linkedinUrl: 'https://www.linkedin.com/in/gonzalo-magana-segovia-software',
+  portfolioUrl: 'https://GonzaloTT.github.io/Portfolio/',
   cvUrl: null as string | null,
   portraitPath: '/images/portrait.webp',
   portraitAvailable: false,
