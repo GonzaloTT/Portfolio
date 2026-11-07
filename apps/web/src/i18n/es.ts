@@ -1,6 +1,8 @@
 import type { en } from './en'
 
 export const es: Record<keyof typeof en, string> = {
+  "switchLight": "Cambiar al modo claro",
+  "switchDark": "Cambiar al modo oscuro",
   "open": "Disponible para trabajar",
   "hero": "Desarrollo aplicaciones web y móviles. Combino ingeniería de software, tecnologías modernas y diseño centrado en las personas para crear soluciones digitales funcionales y escalables.",
   "viewProjects": "Ver proyectos",

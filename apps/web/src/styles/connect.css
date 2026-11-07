@@ -5,15 +5,15 @@
 .connect-title { text-align: center; margin-bottom: 36px; }
 .connect-title h1 { font-size: clamp(2.1rem, 4vw, 3.2rem); }
 .connect-title > p { max-width: 520px; margin: 18px auto 0; font-size: .92rem; }
-.identity-card { padding: 38px; text-align: center; background: radial-gradient(ellipse at 100% 0, #28371c77, transparent 52%), #141a16; }
+.identity-card { padding: 38px; text-align: center; background: radial-gradient(ellipse at 100% 0, var(--identity-tint), transparent 52%), var(--surface); }
 .identity-heading { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-.identity-avatar { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: #2a3529; color: var(--green); font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 600; }
+.identity-avatar { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: var(--avatar-surface); color: var(--green); font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 600; }
 .identity-heading h2 { font-size: 1.6rem; }
 .identity-heading p { font-size: .84rem; margin-top: 10px; }
-.profile-identifier { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; background: #0b100d; padding: 12px 18px; border-radius: 8px; width: fit-content; max-width: 100%; margin: 22px auto; }
+.profile-identifier { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; background: var(--inset-surface); padding: 12px 18px; border-radius: 8px; width: fit-content; max-width: 100%; margin: 22px auto; }
 .profile-identifier > span { font-size: .55rem; color: var(--muted); }
 .profile-identifier code { font-family: 'JetBrains Mono', monospace; color: var(--green); font-size: .78rem; overflow-wrap: anywhere; user-select: all; }
-.qr-placeholder { width: min(260px, 100%); aspect-ratio: 1; margin: 24px auto; background: #080d0a; border: 1px dashed #3e502f; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 15px; padding: 24px; }
+.qr-placeholder { width: min(260px, 100%); aspect-ratio: 1; margin: 24px auto; background: var(--input-surface); border: 1px dashed var(--qr-border); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 15px; padding: 24px; }
 .qr-placeholder > svg { color: var(--green); max-width: 100%; }
 .qr-placeholder > span { font-size: .58rem; letter-spacing: .06em; color: var(--green); }
 .qr-placeholder p { font-size: .65rem; }
@@ -24,12 +24,12 @@
 .connect-form-panel { margin-top: 24px; padding: 28px; }
 .connect-form-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .connect-form-heading h2 { font-size: 1.3rem; }
-.pending-label { color: var(--green); font-size: .58rem; background: #25321c; border-radius: 4px; padding: 6px 8px; }
+.pending-label { color: var(--green); font-size: .58rem; background: var(--pending-surface); border-radius: 4px; padding: 6px 8px; }
 .connect-form-panel > p { font-size: .8rem; margin-top: 14px; }
-.connect-form-panel label { display: block; margin: 22px 0 10px; color: #c3ccc4; font-size: .75rem; }
+.connect-form-panel label { display: block; margin: 22px 0 10px; color: var(--input-label); font-size: .75rem; }
 .connect-input-row { display: flex; gap: 10px; }
-.connect-input-row input { width: 100%; min-width: 0; background: #080d0a; border: 1px solid var(--border); border-radius: 8px; padding: 14px; color: #f2f6f1; font-size: .8rem; }
-.connect-input-row input::placeholder { color: #8d9c90; }
+.connect-input-row input { width: 100%; min-width: 0; background: var(--input-surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px; color: var(--text); font-size: .8rem; }
+.connect-input-row input::placeholder { color: var(--input-placeholder); }
 .connection-status { font-size: .8rem; margin-top: 14px; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; font-size: .8rem; color: var(--green); margin-top: 14px; }
 @media (max-width: 600px) {

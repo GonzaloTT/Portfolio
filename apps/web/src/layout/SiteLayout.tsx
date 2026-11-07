@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router'
 import { LanguageSelector } from '../components/LanguageSelector'
+import { ThemeToggle } from '../components/ThemeToggle'
 import { WhatsAppLink } from '../components/WhatsAppLink'
 import { navigation, profile } from '../data/profile'
 
@@ -49,6 +50,7 @@ export function SiteLayout() {
         <div className="header-actions">
           <span className="availability"><span />{t('open')}</span>
           <LanguageSelector />
+          <ThemeToggle />
           <WhatsAppLink className="icon-button header-whatsapp" />
           <NavLink to="/connect" className="button primary header-connect">{t('connect')}</NavLink>
           <button className="icon-button menu-toggle" aria-label={t(menuOpen ? 'menuClose' : 'menuOpen')} aria-expanded={menuOpen} aria-controls="mobile-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>

@@ -1,4 +1,6 @@
 export const en = {
+  "switchLight": "Switch to light mode",
+  "switchDark": "Switch to dark mode",
   "open": "Open to Work",
   "hero": "I develop web and mobile applications, combining software engineering, modern technologies, and user-centered design to build functional and scalable digital solutions.",
   "viewProjects": "View Projects",
