@@ -11,13 +11,13 @@
 .gallery-viewport--website { aspect-ratio: 2 / 1; }
 .gallery-viewport--panorama { aspect-ratio: 9 / 4; }
 .gallery-viewport--document { width: min(100%, 600px); margin-inline: auto; aspect-ratio: 5 / 4; }
-.gallery-viewport--logo { width: min(100%, 600px); margin-inline: auto; aspect-ratio: 2 / 1; }
+.gallery-viewport--logo { width: min(100%, 320px); margin-inline: auto; aspect-ratio: 1; }
 .gallery-viewport--mobile { width: min(100%, 760px); margin-inline: auto; aspect-ratio: 8 / 5; }
 .gallery-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 260ms ease; }
 .gallery-slide.is-current { opacity: 1; z-index: 1; }
 .gallery-slide > img { width: 100%; height: 100%; object-fit: contain; }
 .gallery-viewport--website img, .gallery-viewport--panorama img { object-fit: cover; }
-.gallery-viewport--logo img { padding: clamp(12px, 3vw, 28px); }
+.gallery-viewport--logo img { padding: 8px; }
 .gallery-slide--showcase {
   display: flex;
   align-items: center;
