@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { ArrowLeft, ArrowRight, ExternalLink, GitFork } from 'lucide-react'
 import { projects } from '../data/projects'
-import { ImagePlaceholder } from './ImagePlaceholder'
+import { ProjectGallery } from './ProjectGallery'
 import '../styles/projects.css'
 
 export function ProjectsCarousel() {
@@ -31,6 +31,7 @@ export function ProjectsCarousel() {
   }
 
   function handleKeys(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.target !== event.currentTarget) return
     const destinations: Record<string, number> = {
       ArrowLeft: Math.max(0, active - 1),
       ArrowRight: Math.min(projects.length - 1, active + 1),
@@ -54,7 +55,7 @@ export function ProjectsCarousel() {
     </div>
     <div className="project-track" ref={track} onScroll={updateActive} onKeyDown={handleKeys} tabIndex={0} aria-describedby="carousel-help">
       {projects.map((project, index) => <article className={`panel project-card ${active === index ? 'is-active' : ''}`} key={project.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${projects.length}: ${project.name}`}>
-        <ImagePlaceholder name={project.name} available={false} />
+        <ProjectGallery key={active === index ? 'active' : 'inactive'} projectId={project.id} name={project.name} active={active === index} />
         <div className="project-copy">
           <span className="eyebrow">{project.category}</span>
           <h3>{project.name}</h3>
