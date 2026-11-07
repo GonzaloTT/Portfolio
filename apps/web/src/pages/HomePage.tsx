@@ -61,7 +61,7 @@ export function HomePage() {
         <p>Have a project, an opportunity, or an idea? Let's connect.</p>
         <div className="button-row contact-actions">
           <a className="button primary" href={`mailto:${profile.email}`}><Mail size={17} aria-hidden="true" /><span>{profile.email}</span></a>
-          {profile.cvUrl ? <a className="button secondary" href={profile.cvUrl} download><Download size={17} />Download CV</a> : <button className="button secondary" disabled><Download size={17} />CV — coming soon</button>}
+          <a className="button secondary" href={profile.cvUrl} download="Gonzalo_Magana_Segovia_CV.pdf"><Download size={17} aria-hidden="true" />Download CV</a>
         </div>
         <div className="contact-links">
           <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer"><GitFork size={16} aria-hidden="true" />GitHub / GonzaloTT <ArrowUpRight size={14} aria-hidden="true" /></a>

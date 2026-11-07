@@ -8,7 +8,7 @@ export const profile = {
   email: 'gonzalo.magana.1808@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/gonzalo-magana-segovia-software',
   portfolioUrl: 'https://GonzaloTT.github.io/Portfolio/',
-  cvUrl: null as string | null,
+  cvUrl: `${import.meta.env.BASE_URL}cv/${encodeURIComponent('Gonzalo_Magaña_CV.pdf')}`,
   portraitPath: '/images/portrait.webp',
   portraitAvailable: false,
   // Local display identifier; not a registered network identity.
