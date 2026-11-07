@@ -381,6 +381,31 @@ main:focus,section[tabindex]:focus {
     margin-bottom: 30px
   }
 }
+#main-content {
+  scroll-margin-top: 100px
+}
+@media(max-width:900px) {
+  #main-content {
+    scroll-margin-top: 90px
+  }
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .panel:not(.role-panel), .experience-area {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, opacity 150ms
+  }
+  .panel:not(.role-panel):hover, .experience-area:hover {
+    transform: translateY(-5px);
+    border-color: #465743;
+    box-shadow: 0 8px 20px #0003
+  }
+  .button, .icon-button, .contact-links a, .back-link, .text-link, .slide-indicators button span {
+    transition: transform 220ms ease, filter 220ms ease
+  }
+  .button:hover:not(:disabled), .icon-button:hover:not(:disabled),
+  .contact-links a:hover, .back-link:hover, .text-link:hover, .slide-indicators button:hover span {
+    transform: translateY(-2px)
+  }
+}
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {
     scroll-behavior: auto!important;

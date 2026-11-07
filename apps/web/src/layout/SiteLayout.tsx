@@ -10,7 +10,9 @@ function RoutePosition() {
     const frame = requestAnimationFrame(() => {
       if (hash) {
         const target = document.getElementById(hash.slice(1))
-        target?.scrollIntoView({ block: 'start' })
+        const smooth = pathname === '/' && target?.id !== 'main-content'
+          && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        target?.scrollIntoView({ block: 'start', behavior: smooth ? 'smooth' : 'instant' })
         target?.focus({ preventScroll: true })
       } else {
         window.scrollTo(0, 0)
