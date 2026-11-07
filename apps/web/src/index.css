@@ -1,16 +1,14 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import './styles/site.css';
 
-:root {
-  font-family: Inter, system-ui, sans-serif;
-  color: #f2f6f1;
-  background-color: #080b09;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+@theme {
+  --color-background: #080b09;
+  --color-surface: #141a16;
+  --color-neon: #b6ff3b;
+  --color-accent: #38d985;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
