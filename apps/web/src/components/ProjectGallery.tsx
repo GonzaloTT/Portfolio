@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 import { galleryPresentations } from '../data/galleryPresentation'
@@ -13,6 +14,7 @@ interface GalleryProps {
 }
 
 export function ProjectGallery({ projectId, name, active }: GalleryProps) {
+  const { t } = useTranslation()
   const viewport = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
   const [pageVisible, setPageVisible] = useState(() => !document.hidden)
@@ -61,7 +63,7 @@ export function ProjectGallery({ projectId, name, active }: GalleryProps) {
     return () => window.clearTimeout(timer)
   }, [rotating, current, count])
 
-  return <div className="project-gallery" role="group" aria-label={`${name} image gallery`}>
+  return <div className="project-gallery" role="group" aria-label={t('gallery', { name })}>
     <div className={`gallery-viewport gallery-viewport--${presentation?.frame ?? 'standard'}`} ref={viewport}>
       {count ? slides.map((slide, index) => (active || index === current) && <div
         key={slide.join(',')}
@@ -71,19 +73,19 @@ export function ProjectGallery({ projectId, name, active }: GalleryProps) {
         {slide.map(file => <img
           key={file}
           src={`${import.meta.env.BASE_URL}images/projects/${projectId}/${file}`}
-          alt={file === 'cover.svg' ? `${name} project cover` : `${name} project preview ${Number(file.slice(8, -4))}`}
+          alt={file === 'cover.svg' ? t('cover', { name }) : t('preview', { name, index: Number(file.slice(8, -4)) })}
           style={presentation?.objectPosition ? { objectPosition: presentation.objectPosition } : undefined}
           loading="lazy"
           decoding="async"
           onError={() => setFailed(previous => previous.includes(file) ? previous : [...previous, file])}
         />)}
-      </div>) : <p className="gallery-unavailable">{name} preview unavailable</p>}
+      </div>) : <p className="gallery-unavailable">{t('unavailablePreview', { name })}</p>}
     </div>
     {active && count > 1 && <div className="gallery-controls">
-      <button type="button" className="icon-button" aria-label={`Previous ${name} image`} onClick={() => setSelected((current + count - 1) % count)}><ChevronLeft /></button>
-      <span className="mono gallery-count" aria-label={`Gallery slide ${current + 1} of ${count}`}>{current + 1} / {count}</span>
-      <button type="button" className="icon-button" aria-label={`Next ${name} image`} onClick={() => setSelected((current + 1) % count)}><ChevronRight /></button>
-      {!reducedMotion && <button type="button" className="icon-button" aria-label={`${paused ? 'Resume' : 'Pause'} ${name} image rotation`} onClick={() => setPaused(!paused)}>{paused ? <Play /> : <Pause />}</button>}
+      <button type="button" className="icon-button" aria-label={t('prevImage', { name })} onClick={() => setSelected((current + count - 1) % count)}><ChevronLeft /></button>
+      <span className="mono gallery-count" aria-label={t('gallerySlide', { index: current + 1, count })}>{current + 1} / {count}</span>
+      <button type="button" className="icon-button" aria-label={t('nextImage', { name })} onClick={() => setSelected((current + 1) % count)}><ChevronRight /></button>
+      {!reducedMotion && <button type="button" className="icon-button" aria-label={t(paused ? 'resumeRotation' : 'pauseRotation', { name })} onClick={() => setPaused(!paused)}>{paused ? <Play /> : <Pause />}</button>}
     </div>}
   </div>
 }

@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router'
 
 export function NotFoundPage() {
+  const { t } = useTranslation()
   return <div className="container section">
-    <span className="eyebrow">404 / Page not found</span>
-    <h1>Let's get you back home.</h1>
-    <p className="section-heading">This page doesn't exist. Explore the portfolio instead.</p>
-    <Link className="button primary" to="/#home">Return to Home</Link>
+    <span className="eyebrow">{t('notFound')}</span>
+    <h1>{t('backHomeHeading')}</h1>
+    <p className="section-heading">{t('notFoundIntro')}</p>
+    <Link className="button primary" to="/#home">{t('backHome')}</Link>
   </div>
 }
 
