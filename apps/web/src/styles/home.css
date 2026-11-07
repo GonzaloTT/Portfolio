@@ -42,6 +42,18 @@
 .contact-panel > p { margin-top: 15px; }
 .contact-actions { margin-top: 28px; }
 .contact-actions a[href^="mailto:"] { overflow-wrap: anywhere; }
+.cv-download { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 100%; }
+.cv-download select {
+  min-height: 46px;
+  max-width: 100%;
+  padding: 8px 10px;
+  color: var(--text);
+  background: var(--secondary-button);
+  border: 1px solid var(--secondary-button-border);
+  border-radius: 8px;
+  font-size: .8rem;
+}
+.cv-unavailable { flex-basis: 100%; font-size: .75rem; }
 .contact-links { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: .75rem; color: var(--muted); }
 .contact-links a { display: inline-flex; align-items: center; gap: 8px; }
 .contact-links a:hover { color: var(--green); }
@@ -77,6 +89,7 @@
   .contact-panel > p { font-size: .87rem; }
   .contact-actions, .contact-links { display: grid; gap: 12px; }
   .contact-actions .button { justify-content: flex-start; }
+  .cv-download { display: grid; grid-template-columns: minmax(0, 1fr); }
   .home-page > .contact-section { padding-bottom: 42px; }
 }
 

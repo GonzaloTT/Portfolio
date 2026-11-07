@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { ArrowRight, ArrowUpRight, Database, Download, GitFork, Link2, Mail, Monitor, PenTool, ShieldCheck, Smartphone, Wrench } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Database, GitFork, Link2, Mail, Monitor, PenTool, ShieldCheck, Smartphone, Wrench } from 'lucide-react'
 import { Link } from 'react-router'
+import { CvDownload } from '../components/CvDownload'
 import { EducationCards } from '../components/EducationCards'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
 import { SectionHeading } from '../components/SectionHeading'
@@ -64,7 +65,7 @@ export function HomePage() {
         <p>{t('contactIntro')}</p>
         <div className="button-row contact-actions">
           <a className="button primary" href={`mailto:${profile.email}`}><Mail size={17} aria-hidden="true" /><span>{profile.email}</span></a>
-          <a className="button secondary" href={profile.cvUrl} download="Gonzalo_Magana_Segovia_CV.pdf"><Download size={17} aria-hidden="true" />{t('download')}</a>
+          <CvDownload />
         </div>
         <div className="contact-links">
           <WhatsAppLink className="contact-whatsapp" showNumber />
