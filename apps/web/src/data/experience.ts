@@ -1,20 +1,14 @@
 export const experienceAreas = [
   {
-    title: 'ERPNext & Frappe',
-    description: 'Internal software development and business workflow digitalization with ERPNext and Frappe.',
-    label: 'Business systems',
+    title: 'ERP Development',
+    description: 'ERPNext customization, Frappe Framework, pricing workflows, and business process digitalization.',
   },
   {
-    title: 'Frontend interfaces',
-    description: 'Vue and TypeScript interfaces for internal business tools and operational workflows.',
-    label: 'Application development',
+    title: 'Software Development',
+    description: 'Development of internal applications, modern frontend interfaces, and tools for company operations.',
   },
   {
-    title: 'IT & documentation',
-    description: 'IT support, Microsoft 365, and technical documentation to support day-to-day work.',
-    label: 'People & operations',
+    title: 'IT Operations',
+    description: 'Technical support, Microsoft 365 administration, systems assistance, and technical documentation.',
   },
 ] as const
-
-export const experienceTechnologies = ['ERPNext', 'Frappe', 'Vue', 'TypeScript', 'Microsoft 365']
-
