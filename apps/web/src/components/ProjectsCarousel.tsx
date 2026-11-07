@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
-import { ArrowLeft, ArrowRight, ExternalLink, Github } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ExternalLink, GitFork } from 'lucide-react'
 import { projects } from '../data/projects'
 import { ImagePlaceholder } from './ImagePlaceholder'
 import '../styles/projects.css'
@@ -61,7 +61,7 @@ export function ProjectsCarousel() {
           <p>{project.description}</p>
           <div className="tags" aria-label="Technologies">{project.technologies.map(technology => <span key={technology}>{technology}</span>)}</div>
           {(project.githubUrl || project.liveUrl) && <div className="button-row">
-            {project.githubUrl && <a className="button secondary" href={project.githubUrl} target="_blank" rel="noreferrer"><Github size={17} />GitHub Repository</a>}
+            {project.githubUrl && <a className="button secondary" href={project.githubUrl} target="_blank" rel="noreferrer"><GitFork size={17} />GitHub Repository</a>}
             {project.liveUrl && <a className="button primary" href={project.liveUrl} target="_blank" rel="noreferrer"><ExternalLink size={17} />View Live Project</a>}
           </div>}
           {!project.githubUrl && !project.liveUrl && <span className="project-link-note mono">Project links awaiting confirmation</span>}

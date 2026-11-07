@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Database, Download, Github, Linkedin, Mail, Monitor, PenTool, Smartphone } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Database, Download, GitFork, Link2, Mail, Monitor, PenTool, Smartphone } from 'lucide-react'
 import { Link } from 'react-router'
 import { EducationCards } from '../components/EducationCards'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
@@ -65,8 +65,8 @@ export function HomePage() {
           {profile.cvUrl ? <a className="button secondary" href={profile.cvUrl} download><Download size={17} />Download CV</a> : <button className="button secondary" disabled><Download size={17} />CV — coming soon</button>}
         </div>
         <div className="contact-links">
-          <a href={profile.githubUrl} target="_blank" rel="noreferrer"><Github size={16} />GitHub / GonzaloTT <ArrowUpRight size={14} /></a>
-          {profile.linkedinUrl ? <a href={profile.linkedinUrl} target="_blank" rel="noreferrer"><Linkedin size={16} />LinkedIn <ArrowUpRight size={14} /></a> : <span><Linkedin size={16} />LinkedIn — URL pending</span>}
+          <a href={profile.githubUrl} target="_blank" rel="noreferrer"><GitFork size={16} />GitHub / GonzaloTT <ArrowUpRight size={14} /></a>
+          {profile.linkedinUrl ? <a href={profile.linkedinUrl} target="_blank" rel="noreferrer"><Link2 size={16} />LinkedIn <ArrowUpRight size={14} /></a> : <span><Link2 size={16} />LinkedIn — URL pending</span>}
         </div>
       </div>
     </section>
