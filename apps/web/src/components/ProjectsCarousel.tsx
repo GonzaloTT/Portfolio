@@ -54,17 +54,18 @@ export function ProjectsCarousel() {
     </div>
     <div className="project-track" ref={track} onScroll={updateActive} onKeyDown={handleKeys} tabIndex={0} aria-describedby="carousel-help">
       {projects.map((project, index) => <article className={`panel project-card ${active === index ? 'is-active' : ''}`} key={project.id} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${projects.length}: ${project.name}`}>
-        <ImagePlaceholder name={project.name} src={project.imagePath} available={project.imageAvailable} />
+        <ImagePlaceholder name={project.name} available={false} />
         <div className="project-copy">
-          <span className="eyebrow">{project.detailsPending ? 'Details pending' : 'Internal software / Business workflows'}</span>
+          <span className="eyebrow">{project.category}</span>
           <h3>{project.name}</h3>
+          <div className="project-status mono">{project.status}{project.period && <> · {project.period}</>}</div>
           <p>{project.description}</p>
           <div className="tags" aria-label="Technologies">{project.technologies.map(technology => <span key={technology}>{technology}</span>)}</div>
-          {(project.githubUrl || project.liveUrl) && <div className="button-row">
+          {(project.githubUrl || project.externalLink) && <div className="button-row">
             {project.githubUrl && <a className="button secondary" href={project.githubUrl} target="_blank" rel="noreferrer"><GitFork size={17} />GitHub Repository</a>}
-            {project.liveUrl && <a className="button primary" href={project.liveUrl} target="_blank" rel="noreferrer"><ExternalLink size={17} />View Live Project</a>}
+            {project.externalLink && <a className="button primary" href={project.externalLink.url} target="_blank" rel="noreferrer"><ExternalLink size={17} />{project.externalLink.label}</a>}
           </div>}
-          {!project.githubUrl && !project.liveUrl && <span className="project-link-note mono">Project links awaiting confirmation</span>}
+          {project.note && <small className="project-link-note">{project.note}</small>}
         </div>
       </article>)}
     </div>
