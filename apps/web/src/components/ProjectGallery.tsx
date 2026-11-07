@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
+import { galleryPresentations } from '../data/galleryPresentation'
 
 const motionPreference = '(prefers-reduced-motion: reduce)'
 const rotationDelay = 3500
@@ -20,9 +21,15 @@ export function ProjectGallery({ projectId, name, active }: GalleryProps) {
   const [selected, setSelected] = useState(0)
   const [failed, setFailed] = useState<readonly string[]>([])
 
-  const images = (galleries[projectId] ?? [])
-    .filter(file => !failed.includes(file))
-  const count = images.length
+  const presentation = galleryPresentations[projectId]
+  const files = (galleries[projectId] ?? []).filter(file => !failed.includes(file))
+  const showcases = presentation?.showcases?.map(group => group.filter(file => files.includes(file)))
+  const slides = files.flatMap(file => {
+    const showcase = showcases?.find(group => group.includes(file))
+    if (!showcase) return [[file]]
+    return showcase[0] === file ? [showcase] : []
+  })
+  const count = slides.length
   const current = count ? selected % count : 0
 
   useEffect(() => {
@@ -55,21 +62,26 @@ export function ProjectGallery({ projectId, name, active }: GalleryProps) {
   }, [rotating, current, count])
 
   return <div className="project-gallery" role="group" aria-label={`${name} image gallery`}>
-    <div className="gallery-viewport" ref={viewport}>
-      {count ? images.map((file, index) => (active || index === current) && <img
-        key={file}
-        className={index === current ? 'is-current' : undefined}
+    <div className={`gallery-viewport gallery-viewport--${presentation?.frame ?? 'standard'}`} ref={viewport}>
+      {count ? slides.map((slide, index) => (active || index === current) && <div
+        key={slide.join(',')}
+        className={`gallery-slide${slide.length > 1 ? ' gallery-slide--showcase' : ''}${index === current ? ' is-current' : ''}`}
         aria-hidden={index !== current}
-        src={`${import.meta.env.BASE_URL}images/projects/${projectId}/${file}`}
-        alt={file === 'cover.svg' ? `${name} project cover` : `${name} project preview ${Number(file.slice(8, -4))}`}
-        loading="lazy"
-        decoding="async"
-        onError={() => setFailed(previous => previous.includes(file) ? previous : [...previous, file])}
-      />) : <p className="gallery-unavailable">{name} preview unavailable</p>}
+      >
+        {slide.map(file => <img
+          key={file}
+          src={`${import.meta.env.BASE_URL}images/projects/${projectId}/${file}`}
+          alt={file === 'cover.svg' ? `${name} project cover` : `${name} project preview ${Number(file.slice(8, -4))}`}
+          style={presentation?.objectPosition ? { objectPosition: presentation.objectPosition } : undefined}
+          loading="lazy"
+          decoding="async"
+          onError={() => setFailed(previous => previous.includes(file) ? previous : [...previous, file])}
+        />)}
+      </div>) : <p className="gallery-unavailable">{name} preview unavailable</p>}
     </div>
     {active && count > 1 && <div className="gallery-controls">
       <button type="button" className="icon-button" aria-label={`Previous ${name} image`} onClick={() => setSelected((current + count - 1) % count)}><ChevronLeft /></button>
-      <span className="mono gallery-count" aria-label={`Image ${current + 1} of ${count}`}>{current + 1} / {count}</span>
+      <span className="mono gallery-count" aria-label={`Gallery slide ${current + 1} of ${count}`}>{current + 1} / {count}</span>
       <button type="button" className="icon-button" aria-label={`Next ${name} image`} onClick={() => setSelected((current + 1) % count)}><ChevronRight /></button>
       {!reducedMotion && <button type="button" className="icon-button" aria-label={`${paused ? 'Resume' : 'Pause'} ${name} image rotation`} onClick={() => setPaused(!paused)}>{paused ? <Play /> : <Pause />}</button>}
     </div>}
