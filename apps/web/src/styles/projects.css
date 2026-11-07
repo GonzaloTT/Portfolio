@@ -1,0 +1,37 @@
+.carousel-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 22px; }
+.carousel-toolbar > p { font-size: .65rem; }
+.carousel-controls { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.carousel-count { color: var(--green); font-size: .7rem; padding-right: 10px; }
+.project-track { position: relative; display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #344630 #101612; padding: 5px 0 18px; overscroll-behavior-x: contain; }
+.project-track::after { content: ''; flex: 0 0 calc(22% - 22px); }
+.project-card { flex: 0 0 78%; min-width: 0; scroll-snap-align: start; padding: 26px; opacity: .62; transition: border-color 150ms, opacity 150ms; }
+.project-card.is-active { opacity: 1; border-color: #627e34; }
+.project-copy { padding: 26px 2px 2px; }
+.project-copy .eyebrow { color: var(--accent); font-size: .6rem; margin-bottom: 10px; }
+.project-copy h3 { font-size: 1.8rem; }
+.project-copy p { font-size: .9rem; margin: 14px 0 18px; max-width: 670px; }
+.project-copy .button-row { margin-top: 24px; }
+.project-link-note { display: block; font-size: .6rem; color: var(--muted); margin-top: 24px; }
+.slide-indicators { display: flex; justify-content: center; gap: 4px; margin-top: 8px; }
+.slide-indicators button { background: transparent; border: 0; padding: 13px 7px; min-width: 30px; min-height: 44px; display: grid; place-items: center; }
+.slide-indicators button span { width: 7px; height: 7px; border-radius: 50%; background: #516055; }
+.slide-indicators button[aria-current] span { background: var(--green); width: 24px; border-radius: 8px; }
+@media (max-width: 600px) {
+  .carousel-toolbar { flex-wrap: wrap; gap: 12px; }
+  .carousel-toolbar > p { width: 100%; font-size: .6rem; }
+  .carousel-controls { margin-left: auto; }
+  .project-track { gap: 16px; }
+  .project-track::after { display: none; }
+  .project-card { flex-basis: 100%; padding: 16px; }
+  .project-copy { padding-top: 22px; }
+  .project-copy h3 { font-size: 1.5rem; }
+  .project-copy p { font-size: .82rem; }
+  .project-card .placeholder-center { padding: 35px 12px; }
+  .project-card .placeholder-center p, .project-card .placeholder-bottom { display: none; }
+  .project-card .placeholder-center strong { font-size: .9rem; }
+  .project-card .placeholder-corner { font-size: .45rem; top: 10px; left: 10px; }
+  .project-card .placeholder-icon { width: 34px; height: 34px; margin-bottom: 8px; }
+  .project-card .placeholder-icon svg { width: 18px; }
+  .project-link-note { font-size: .53rem; line-height: 1.7; }
+}
+

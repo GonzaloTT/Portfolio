@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { EducationCards } from '../components/EducationCards'
 import { ImagePlaceholder } from '../components/ImagePlaceholder'
 import { SectionHeading } from '../components/SectionHeading'
+import { ProjectsCarousel } from '../components/ProjectsCarousel'
 import { profile } from '../data/profile'
 import { skillGroups } from '../data/skills'
 import '../styles/home.css'
@@ -41,7 +42,7 @@ export function HomePage() {
 
     <section id="projects" tabIndex={-1} className="section">
       <SectionHeading label="02 / Portfolio" title="Selected Work" description="A closer look at my project portfolio." />
-      <p>Project previews and verified details are coming soon.</p>
+      <ProjectsCarousel />
     </section>
 
     <section id="skills" tabIndex={-1} className="section">
