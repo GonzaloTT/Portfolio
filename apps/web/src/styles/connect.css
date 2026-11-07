@@ -1,0 +1,51 @@
+.connect-page { max-width: 700px; padding-block: 42px 76px; }
+.connect-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 36px; }
+.connect-topline .back-link { margin-bottom: 0; font-size: .6rem; }
+.connect-topline .availability { font-size: .6rem; }
+.connect-title { text-align: center; margin-bottom: 36px; }
+.connect-title h1 { font-size: clamp(2.1rem, 4vw, 3.2rem); }
+.connect-title > p { max-width: 520px; margin: 18px auto 0; font-size: .92rem; }
+.identity-card { padding: 38px; text-align: center; background: radial-gradient(ellipse at 100% 0, #28371c77, transparent 52%), #141a16; }
+.identity-heading { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.identity-avatar { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: #2a3529; color: var(--green); font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 600; }
+.identity-heading h2 { font-size: 1.6rem; }
+.identity-heading p { font-size: .84rem; margin-top: 10px; }
+.profile-identifier { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; background: #0b100d; padding: 12px 18px; border-radius: 8px; width: fit-content; max-width: 100%; margin: 22px auto; }
+.profile-identifier > span { font-size: .55rem; color: var(--muted); }
+.profile-identifier code { font-family: 'JetBrains Mono', monospace; color: var(--green); font-size: .78rem; overflow-wrap: anywhere; user-select: all; }
+.qr-placeholder { width: min(260px, 100%); aspect-ratio: 1; margin: 24px auto; background: #080d0a; border: 1px dashed #3e502f; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 15px; padding: 24px; }
+.qr-placeholder > svg { color: var(--green); max-width: 100%; }
+.qr-placeholder > span { font-size: .58rem; letter-spacing: .06em; color: var(--green); }
+.qr-placeholder p { font-size: .65rem; }
+.identity-description { font-size: .84rem; max-width: 450px; margin: 0 auto; }
+.profile-link { display: block; color: var(--muted); font-size: .65rem; overflow-wrap: anywhere; margin-top: 16px; text-decoration: underline; text-underline-offset: 3px; }
+.identity-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+.clipboard-status { min-height: 24px; margin-top: 14px; font-size: .76rem; color: var(--accent); }
+.connect-form-panel { margin-top: 24px; padding: 28px; }
+.connect-form-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.connect-form-heading h2 { font-size: 1.3rem; }
+.pending-label { color: var(--green); font-size: .58rem; background: #25321c; border-radius: 4px; padding: 6px 8px; }
+.connect-form-panel > p { font-size: .8rem; margin-top: 14px; }
+.connect-form-panel label { display: block; margin: 22px 0 10px; color: #c3ccc4; font-size: .75rem; }
+.connect-input-row { display: flex; gap: 10px; }
+.connect-input-row input { width: 100%; min-width: 0; background: #080d0a; border: 1px solid var(--border); border-radius: 8px; padding: 14px; color: #f2f6f1; font-size: .8rem; }
+.connect-input-row input::placeholder { color: #8d9c90; }
+.connection-status { font-size: .8rem; margin-top: 14px; }
+.text-link { display: inline-flex; align-items: center; gap: 8px; font-size: .8rem; color: var(--green); margin-top: 14px; }
+@media (max-width: 600px) {
+  .connect-page { padding-top: 26px; }
+  .connect-topline .availability { display: none; }
+  .connect-title { text-align: left; }
+  .connect-title > p { font-size: .88rem; }
+  .identity-card { padding: 26px 22px 12px; }
+  .identity-heading { flex-direction: row; text-align: left; gap: 14px; }
+  .identity-avatar { width: 48px; height: 48px; flex-shrink: 0; font-size: 1.1rem; }
+  .identity-heading h2 { font-size: 1.18rem; line-height: 1.3; }
+  .identity-heading p { color: var(--accent); font-size: .73rem; }
+  .identity-actions { gap: 8px; }
+  .identity-actions .button { font-size: .7rem; padding-inline: 8px; gap: 5px; }
+  .identity-description { text-align: left; font-size: .82rem; }
+  .connect-form-panel { padding: 24px 20px; }
+  .connect-input-row { flex-direction: column; }
+}
+
