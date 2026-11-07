@@ -11,7 +11,7 @@ import '../styles/home.css'
 const skillIcons = { frontend: Monitor, backend: Database, mobile: Smartphone, tools: Wrench, design: PenTool, systems: ShieldCheck }
 
 export function HomePage() {
-  return <div className="container">
+  return <div className="container home-page">
     <section id="home" tabIndex={-1} className="hero section">
       <div className="hero-copy">
         <span className="availability"><span />OPEN TO WORK</span>
