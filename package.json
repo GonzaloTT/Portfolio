@@ -2,12 +2,10 @@
   "name": "gonzalo-portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "typecheck": "npm exec -w apps/web -- tsc -b"
   },
   "repository": {
     "type": "git",
