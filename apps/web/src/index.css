@@ -2,11 +2,11 @@
 @import 'tailwindcss';
 @import './styles/site.css';
 
-@theme {
-  --color-background: #080b09;
-  --color-surface: #141a16;
-  --color-neon: #b6ff3b;
-  --color-accent: #38d985;
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-neon: var(--green);
+  --color-accent: var(--accent);
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;

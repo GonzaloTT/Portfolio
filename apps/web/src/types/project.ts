@@ -1,12 +1,10 @@
 export interface Project {
   id: string
   name: string
-  description: string
+  status: 'Completed' | 'In Development' | 'In Progress'
+  period?: string
   technologies: readonly string[]
-  detailsPending: boolean
-  imagePath: string
-  imageAvailable: boolean
+  noteKey?: string
   githubUrl?: string
-  liveUrl?: string
+  externalLink?: { labelKey: string; url: string }
 }
-

@@ -1,45 +1,59 @@
+import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowRight, Building2, Layers, Monitor, Wrench } from 'lucide-react'
 import { Link } from 'react-router'
-import { EducationCards } from '../components/EducationCards'
-import { SectionHeading } from '../components/SectionHeading'
-import { experienceAreas, experienceTechnologies } from '../data/experience'
+import { experiences } from '../data/experience'
+import { projects } from '../data/projects'
 import '../styles/experience.css'
 
 const areaIcons = [Layers, Monitor, Wrench]
 
 export function ExperiencePage() {
+  const { t } = useTranslation()
   return <div className="container experience-page">
     <section className="section experience-intro">
-      <Link className="back-link mono" to="/#home"><ArrowLeft size={15} />BACK TO HOME / CAREER</Link>
-      <span className="eyebrow">Engineering in practice</span>
-      <h1>Professional Experience</h1>
-      <p>Building practical solutions through software engineering.</p>
+      <Link className="back-link mono" to="/#home"><ArrowLeft size={15} />{t('backCareer')}</Link>
+      <span className="eyebrow">{t('inPractice')}</span>
+      <h1>{t('professionalExperience')}</h1>
     </section>
-    <section className="panel role-panel" aria-labelledby="company-heading">
-      <div className="role-heading">
-        <Building2 className="tile-icon" size={56} aria-hidden="true" />
-        <div><h2 id="company-heading">King Global Cargo</h2><p>IT & Software Development</p></div>
-      </div>
-      <p className="role-summary">Internal software, business workflow digitalization, and technical support in a logistics environment.</p>
-      <div className="experience-grid">
-        {experienceAreas.map((area, index) => {
-          const Icon = areaIcons[index]
-          return <article className="experience-area" key={area.title}>
-            <div className="area-top"><Icon className="tile-icon" size={38} aria-hidden="true" /><span className="mono">0{index + 1}</span></div>
-            <h3>{area.title}</h3><p>{area.description}</p><span className="eyebrow">{area.label}</span>
-          </article>
-        })}
-      </div>
-      <div className="role-technologies"><span className="mono">TECHNOLOGIES & TOOLS</span><div className="tags">{experienceTechnologies.map(technology => <span key={technology}>{technology}</span>)}</div></div>
-    </section>
-    <section className="section" aria-label="Education and training">
-      <SectionHeading label="Academic foundation" title="Education & Specialized Training" />
-      <EducationCards />
-    </section>
+    <div className="experience-roles">
+      {experiences.map(experience => <section className="panel role-panel" key={experience.id} aria-labelledby={`company-${experience.id}`}>
+        <div className="role-heading">
+          <Building2 className="tile-icon" size={56} aria-hidden="true" />
+          <div><h2 id={`company-${experience.id}`}>{experience.company}</h2><p>{t(`experience.${experience.id}.role`)}</p></div>
+        </div>
+        <p className="role-summary">{t(`experience.${experience.id}.summary`)}</p>
+        <div className="experience-grid">
+          {experience.areas.map((area, index) => {
+            const Icon = areaIcons[index]
+            return <article className="experience-area" key={area}>
+              <div className="area-top"><Icon className="tile-icon" size={38} aria-hidden="true" /><span className="mono" aria-hidden="true">0{index + 1}</span></div>
+              <h3>{t(`experience.${experience.id}.${area}.title`)}</h3><p>{t(`experience.${experience.id}.${area}.description`)}</p>
+            </article>
+          })}
+        </div>
+        <ul className="role-technologies tags" aria-label={t('companyTech', { name: experience.company })}>
+          {experience.technologies.map(technology => <li key={technology}><span>{technology}</span></li>)}
+        </ul>
+        {experience.clientProjects && <div className="client-projects">
+          <h3>{t('clientProjects')}</h3>
+          <ul className="client-project-list">
+            {experience.clientProjects.map(projectId => {
+              const project = projects.find(item => item.id === projectId)
+              if (!project) return null
+              return <li key={project.id}>
+                <Link to={{ pathname: '/', search: `?project=${encodeURIComponent(project.id)}`, hash: '#projects' }}>
+                  <strong>{project.name}</strong><ArrowRight size={16} aria-hidden="true" />
+                  <span>{t(`client.${project.id}`)}</span>
+                </Link>
+              </li>
+            })}
+          </ul>
+        </div>}
+      </section>)}
+    </div>
     <section className="panel experience-cta">
-      <div><span className="eyebrow">Next steps</span><h2>Interested in working together?</h2><p>Explore my selected work or get in touch.</p></div>
-      <div className="button-row"><Link className="button secondary" to="/#projects">View Selected Projects</Link><Link className="button primary" to="/#contact">Get in Touch <ArrowRight size={17} /></Link></div>
+      <div><span className="eyebrow">{t('nextSteps')}</span><h2>{t('workTogether')}</h2><p>{t('exploreWork')}</p></div>
+      <div className="button-row"><Link className="button secondary" to="/#projects">{t('viewSelected')}</Link><Link className="button primary" to="/#contact">{t('getInTouch')} <ArrowRight size={17} /></Link></div>
     </section>
   </div>
 }
-

@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
-async function writeClipboard(value: string) {
+async function writeClipboard(value: string, fieldLabel: string) {
   try {
     if (navigator.clipboard?.writeText) {
       await navigator.clipboard.writeText(value)
@@ -14,7 +15,7 @@ async function writeClipboard(value: string) {
   const field = document.createElement('textarea')
   field.value = value
   field.setAttribute('readonly', '')
-  field.setAttribute('aria-label', 'Text to copy')
+  field.setAttribute('aria-label', fieldLabel)
   field.style.cssText = 'position:fixed;left:-9999px;top:0;'
   document.body.append(field)
   try {
@@ -27,21 +28,22 @@ async function writeClipboard(value: string) {
 }
 
 export function useClipboard() {
-  const [message, setMessage] = useState('')
+  const { t } = useTranslation()
+  const [messageKey, setMessageKey] = useState<'copiedId' | 'copiedLink' | 'copyUnavailable' | null>(null)
   const [busy, setBusy] = useState(false)
 
-  async function copy(value: string, label: string) {
+  async function copy(value: string, successKey: 'copiedId' | 'copiedLink') {
     setBusy(true)
     try {
-      await writeClipboard(value)
-      setMessage(`${label} copied to clipboard.`)
+      await writeClipboard(value, t('textToCopy'))
+      setMessageKey(successKey)
     } catch {
-      setMessage('Copy is unavailable in this browser. Select and copy the profile ID or link shown on the card.')
+      setMessageKey('copyUnavailable')
     } finally {
       setBusy(false)
     }
   }
 
-  return { copy, message, busy }
+  return { copy, message: messageKey ? t(messageKey) : '', busy }
 }
 

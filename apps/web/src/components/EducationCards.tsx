@@ -1,18 +1,20 @@
+import { useTranslation } from 'react-i18next'
 import { GraduationCap, Code2 } from 'lucide-react'
 
 export function EducationCards() {
+  const { t } = useTranslation()
   return <div className="education-cards">
     <article className="panel education-card">
       <GraduationCap className="tile-icon" size={38} aria-hidden="true" />
-      <span className="eyebrow">University education</span>
+      <span className="eyebrow">{t('degree')}</span>
       <h3>Universidad Mondragón México</h3>
-      <p>Software Engineering and Embedded Systems</p>
+      <p>{t('degreeTitle')}</p>
     </article>
     <article className="panel education-card">
       <Code2 className="tile-icon accent" size={38} aria-hidden="true" />
-      <span className="eyebrow">Specialized training</span>
+      <span className="eyebrow">{t('training')}</span>
       <h3>TripleTen</h3>
-      <p>Full Stack Development <span aria-hidden="true">·</span> UX/UI Design</p>
+      <p>{t('fullStackBootcamp')}<br />{t('designBootcamp')}</p>
     </article>
   </div>
 }

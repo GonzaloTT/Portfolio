@@ -1,20 +1,35 @@
-export const experienceAreas = [
-  {
-    title: 'ERPNext & Frappe',
-    description: 'Internal software development and business workflow digitalization with ERPNext and Frappe.',
-    label: 'Business systems',
-  },
-  {
-    title: 'Frontend interfaces',
-    description: 'Vue and TypeScript interfaces for internal business tools and operational workflows.',
-    label: 'Application development',
-  },
-  {
-    title: 'IT & documentation',
-    description: 'IT support, Microsoft 365, and technical documentation to support day-to-day work.',
-    label: 'People & operations',
-  },
-] as const
+interface Experience {
+  id: string
+  company: string
+  areas: readonly string[]
+  technologies: readonly string[]
+  clientProjects?: readonly string[]
+}
 
-export const experienceTechnologies = ['ERPNext', 'Frappe', 'Vue', 'TypeScript', 'Microsoft 365']
-
+export const experiences: readonly Experience[] = [
+  {
+    id: 'kgc',
+    company: 'King Global Cargo (KGC)',
+    areas: [
+      'erp',
+      'software',
+      'it',
+    ],
+    technologies: ['ERPNext', 'Frappe Framework', 'Python', 'Vue', 'TypeScript', 'Microsoft 365'],
+  },
+  {
+    id: 'impulsa',
+    company: 'Impulsa+',
+    areas: [
+      'web',
+      'design',
+      'integration',
+    ],
+    technologies: ['React', 'JavaScript', 'Vite', 'CSS', 'React Router', 'Shopify', 'Odoo', 'Figma'],
+    clientProjects: [
+      'gutterkel',
+      'xvr',
+      'new-pig',
+    ],
+  },
+]
