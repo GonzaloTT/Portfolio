@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 import type { KeyboardEvent } from 'react'
 import { ArrowLeft, ArrowRight, ExternalLink, GitFork } from 'lucide-react'
+import { useLocation } from 'react-router'
 import { projects } from '../data/projects'
 import { ProjectGallery } from './ProjectGallery'
 import '../styles/projects.css'
@@ -9,14 +10,22 @@ export function ProjectsCarousel() {
   const track = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(0)
 
-  function goTo(index: number) {
+  const { search, key } = useLocation()
+
+  const goTo = useCallback((index: number, behavior?: ScrollBehavior) => {
     const element = track.current?.children[index] as HTMLElement | undefined
     if (!element || !track.current) return
     track.current.scrollTo({
       left: element.offsetLeft,
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      behavior: behavior ?? (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'),
     })
-  }
+  }, [])
+
+  useLayoutEffect(() => {
+    const projectId = new URLSearchParams(search).get('project')
+    const index = projects.findIndex(project => project.id === projectId)
+    if (index >= 0) goTo(index, 'instant')
+  }, [search, key, goTo])
 
   function updateActive() {
     const element = track.current
